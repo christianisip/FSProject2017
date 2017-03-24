@@ -1,4 +1,4 @@
 class Product < ApplicationRecord
-  # attr_accessible (previous list), :image #If exists
+  # attr_accessible :products, :name, :image
   mount_uploader :image, ImageUploader
 end

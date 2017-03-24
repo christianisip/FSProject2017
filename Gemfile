@@ -9,8 +9,11 @@ gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resour
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 # gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'carrierwave', '~> 1.0'
-# gem 'mini_magick', '~> 4.3'
+# gem 'protected_attributes'
+gem 'mini_magick', '~> 4.3'
+# gem 'rubocop', '~> 0.47.1', require: false
 gem 'devise'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
