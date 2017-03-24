@@ -16,8 +16,13 @@ form(:html => { :multipart => true }) do |f|
   f.inputs "Products" do
     f.input :name
     f.input :mfr
-    f.input :image, :as => :file
     f.input :description
+    f.input :price
+    f.input :tax
+    f.input :qty
+    f.input :tags
+    f.input :image, :as => :file
+
   end
   f.button
 end

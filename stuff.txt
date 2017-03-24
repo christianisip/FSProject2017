@@ -1,0 +1,2 @@
+<!-- <td><%= products.image %></td> -->
+<!-- <%= image_tag products.image.url%> -->
