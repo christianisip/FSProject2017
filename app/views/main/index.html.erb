@@ -11,20 +11,11 @@
  <% end %>
    <button type="button">CPU!</button>
 </p>
-<p>
+<form>
+    <%= link_to "clean", clean_path, :class => 'btn btn-primary'%> # you can add btn class if you are using bootstarp
+</form>
 
-  <% @productCategory.each do |productsCat| %>
-     <tr>
-       <td><%= productsCat.name %></td>
-     </tr>
+<% @productCategory.each do |productsCats| %>
+   <tr>
+   <td><%= productsCats.name %></td> </tr>
 <% end %>
-</p>
-
-<p>
-
-  <% Product.where(tags: 'Motherboard').each do |productsCats| %>
-     <tr>
-       <td><%= productsCats.name %></td>
-     </tr>
-<% end %>
-</p>
