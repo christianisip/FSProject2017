@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Slim Examples
+    meta name="keywords" content="template language"
+    javascript:
+      alert('Slim supports embedded javascript!')
+
+    <p>
+      - @product.each do |products|
+        p
+            td = products.id
+            td = products.name
+            td = products.description
+            td = products.price
+            td = products.qty
+            td = products.tags
+
+
+
+
+
+  <p>
+  - @productCategory.each do |productsCats|
+    p
+     td = productsCats.name

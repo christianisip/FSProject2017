@@ -5,7 +5,4 @@ class MainController < ApplicationController
     @productCategory = Product.where(tags: 'Motherboard')
   end
 
-  def clean
-    @productCategory = Product.where(tags: 'Motherboard')
-  end
 end
