@@ -21,10 +21,12 @@ form(:html => { :multipart => true }) do |f|
     f.input :tax
     f.input :qty
     f.input :tags
-    f.input :image, :as => :file
+    f.input :image, :as => :file, :hint =>
+    f.template.image_tag(f.object.image.url(:thumb))
+ f.input :remove_image, :as => :boolean
 
-  end
+   end
   f.button
-end
 
+end
 end
