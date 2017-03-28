@@ -3,14 +3,6 @@ ActiveAdmin.register Product do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
  permit_params :name, :mfr, :description, :price, :tax, :qty, :tags, :string, :image
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
 
 form(:html => { :multipart => true }) do |f|
   f.inputs "Products" do
@@ -21,12 +13,11 @@ form(:html => { :multipart => true }) do |f|
     f.input :tax
     f.input :qty
     f.input :tags
-    f.input :image, :as => :file, :hint =>
-    f.template.image_tag(f.object.image.url(:thumb))
- f.input :remove_image, :as => :boolean
+    f.input :image, :as => :file
+    # f.template.image_tag(f.object.image.url(:thumb))
+    # f.input :remove_image, :as => :boolean
 
    end
   f.button
-
 end
 end

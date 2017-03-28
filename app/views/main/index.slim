@@ -6,7 +6,7 @@ html
     javascript:
       alert('Slim supports embedded javascript!')
 
-    <p>
+    p
       - @product.each do |products|
         p
             td = products.id
@@ -17,10 +17,7 @@ html
             td = products.tags
 
 
-
-
-
-  <p>
-  - @productCategory.each do |productsCats|
-    p
-     td = productsCats.name
+  div
+  p = form_tag(index_path, :method => "get", id: "search-form") do
+    p =  select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name))
+  p =  submit_tag 'Submit', name: nil
