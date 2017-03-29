@@ -6,6 +6,8 @@ html
     javascript:
       alert('Slim supports embedded javascript!')
 
+    p = paginate @product
+
     p
       - @product.each do |products|
         p
@@ -18,12 +20,25 @@ html
 
 
 
+
   div
     p = form_tag(index_path, :method => "get", id: "search-form") do
-       =  select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name))
-       p =  submit_tag 'Submit', name: nil
+      p =  select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name))
+      p =  submit_tag 'Submit', name: nil
 
 
     p = form_tag(index_path, :method => "get", id: "search-form") do
-      p = text_field_tag :search, params[:search], placeholder: "Search anything"
+      p = text_field_tag :searchsss, params[:search], placeholder: "Search anything"
       p = submit_tag 'Search', productName: nil
+
+
+  / p
+  /       - @today.each do |todays|
+  /         p
+  /             td = todays.id
+  /             td = todays.name
+  /             td = todays.description
+  /             td = todays.price
+  /             td = todays.quantity
+  /             td = link_to 'Show details', displayproducts_path(number: todays.id) 
+  /                                                                           
