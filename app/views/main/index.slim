@@ -21,4 +21,9 @@ html
   div
     p = form_tag(index_path, :method => "get", id: "search-form") do
        =  select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name))
-    p =  submit_tag 'Submit', name: nil
+       p =  submit_tag 'Submit', name: nil
+
+
+    p = form_tag(index_path, :method => "get", id: "search-form") do
+      p = text_field_tag :search, params[:search], placeholder: "Search anything"
+      p = submit_tag 'Search', productName: nil
