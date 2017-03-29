@@ -6,10 +6,9 @@ one:
   description: MyText
   price: 9.99
   tax: 9.99
-  qty: 1
-  tags: MyString
-  string: MyString
+  quantity: 1
   image: MyString
+  category: one
 
 two:
   name: MyString
@@ -17,7 +16,6 @@ two:
   description: MyText
   price: 9.99
   tax: 9.99
-  qty: 1
-  tags: MyString
-  string: MyString
+  quantity: 1
   image: MyString
+  category: two

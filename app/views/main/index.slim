@@ -13,11 +13,12 @@ html
             td = products.name
             td = products.description
             td = products.price
-            td = products.qty
-            td = products.tags
+            td = products.quantity
+            td = link_to 'Show details', displayproducts_path(number: products.id)
+
 
 
   div
-  p = form_tag(index_path, :method => "get", id: "search-form") do
-    p =  select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name))
-  p =  submit_tag 'Submit', name: nil
+    p = form_tag(index_path, :method => "get", id: "search-form") do
+       =  select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name))
+    p =  submit_tag 'Submit', name: nil

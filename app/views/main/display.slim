@@ -1,0 +1,17 @@
+h1Products#display
+
+
+  - if @product.image.present?
+    p = image_tag @product.image.url
+    else
+
+
+    h2 = @product.name
+    h3 = @product.mfr
+
+    p =  @product.description
+    p = @product.price
+
+
+
+    p =  @product.quantity
