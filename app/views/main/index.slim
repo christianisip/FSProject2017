@@ -16,6 +16,7 @@ html
             td = products.description
             td = products.price
             td = products.quantity
+            td = image_tag products.image.url 
             td = link_to 'Show details', displayproducts_path(number: products.id)
 
 
@@ -40,5 +41,5 @@ html
   /             td = todays.description
   /             td = todays.price
   /             td = todays.quantity
-  /             td = link_to 'Show details', displayproducts_path(number: todays.id) 
-  /                                                                           
+  /             td = link_to 'Show details', displayproducts_path(number: todays.id)
+  /
