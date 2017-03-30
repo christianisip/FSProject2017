@@ -6,30 +6,13 @@ html
     javascript:
       alert('Slim supports embedded javascript!')
 
-    p = paginate @product
-
-    p
-      - @product.each do |products|
-        p
-            td = products.id
-            td = products.name
-            td = products.description
-            td = products.price
-            td = products.quantity
-            td = image_tag products.image.url 
-            td = link_to 'Show details', displayproducts_path(number: products.id)
 
 
-
-
-  div
-    p = form_tag(index_path, :method => "get", id: "search-form") do
-      p =  select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name))
-      p =  submit_tag 'Submit', name: nil
 
 
     p = form_tag(index_path, :method => "get", id: "search-form") do
-      p = text_field_tag :searchsss, params[:search], placeholder: "Search anything"
+      p = select_tag(:category_id, content_tag(:option, 'All Products', :value=>"all") + options_from_collection_for_select(Category.all, :id, :name))
+      p = text_field_tag :search, params[:search], placeholder: "Search anything"
       p = submit_tag 'Search', productName: nil
 
 
@@ -43,3 +26,16 @@ html
   /             td = todays.quantity
   /             td = link_to 'Show details', displayproducts_path(number: todays.id)
   /
+
+  p = paginate @product
+
+  p
+    - @product.each do |products|
+      p
+          td = products.id
+          td = products.name
+          td = products.description
+          td = products.price
+          td = products.quantity
+          td = image_tag products.image.url
+          td = link_to 'Show details', displayproducts_path(number: products.id)
