@@ -7,9 +7,6 @@ html
       alert('Slim supports embedded javascript!')
 
 
-
-
-
     p = form_tag(index_path, :method => "get", id: "search-form") do
       p = select_tag(:category_id, content_tag(:option, 'All Products', :value=>"all") + options_from_collection_for_select(Category.all, :id, :name))
       p = text_field_tag :search, params[:search], placeholder: "Search anything"
@@ -35,6 +32,5 @@ html
           p = products.name
           p = products.description
           p = products.price
-          p = products.quantity
           p = image_tag products.image.url
           p = link_to 'Show details', displayproducts_path(number: products.id)

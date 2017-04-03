@@ -10,7 +10,7 @@ class MainController < ApplicationController
         # @product = Product.where("category_id = #{ params[:category_id] }").page(params[:page]).per(2)
           @product = Product.where("name LIKE '%#{params[:search]}%' OR description LIKE '%#{params[:search]}%'").page(params[:page]).per(2)
         else
-          @product = Product.where("name LIKE '%#{params[:search]}%' AND category_id LIKE '%#{params[:category_id]}%'").page(params[:page]).per(2)
+          @product = Product.where("name LIKE '%#{params[:search]}%' AND category_id LIKE '%#{params[:category_id]}%'").page(params[:page]).per(1)
         end
       else
         @product = Product.all.page(params[:page]).per(2)
