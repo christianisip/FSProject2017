@@ -2,10 +2,9 @@ class MainController < ApplicationController
 
     def index
       @category = Category.all
-      @productAllWeek = Product.where(
-          'created_at >= :five_days_ago or updated_at >= :three_days_ago',
-          :five_days_ago  => Time.now - 5.days,
-          :three_days_ago => Time.now - 3.days
+      @newproduct = Product.where(
+          'created_at >= :five_days_ago',
+          :five_days_ago  => Time.now - 1.days
       )
 
 

@@ -27,10 +27,21 @@ html
   p = paginate @product
 
   div
-    - @productAllWeek.each do |products|
+    H1 = "ALL PRODUCTS"
+    - @product.each do |products|
       div
           p = products.name
           p = products.description
           p = products.price
           p = image_tag products.image.url
           p = link_to 'Show details', displayproducts_path(number: products.id)
+          
+  div
+    H1 = "NEW PRODUCTS"
+    - @newproduct.each do |newproducts|
+      div
+          p = newproducts.name
+          p = newproducts.description
+          p = newproducts.price
+          p = image_tag newproducts.image.url
+          p = link_to 'Show details', displayproducts_path(number: newproducts.id)
