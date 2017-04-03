@@ -2,7 +2,13 @@ class MainController < ApplicationController
 
     def index
       @category = Category.all
-      @today = Product.where("created_at >= ?", Time.zone.now.beginning_of_day)
+      @productAllWeek = Product.where(
+          'created_at >= :five_days_ago or updated_at >= :three_days_ago',
+          :five_days_ago  => Time.now - 5.days,
+          :three_days_ago => Time.now - 3.days
+      )
+
+
 
       if params[:search]
         # @product = Product.where("name LIKE '%#{params[:search]}%' OR description LIKE '%#{params[:search]}%'").page(params[:page]).per(2)
