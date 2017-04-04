@@ -6,9 +6,6 @@ class MainController < ApplicationController
           'created_at >= :five_days_ago',
           :five_days_ago  => Time.now - 1.days
       )
-
-
-
       if params[:search]
         # @product = Product.where("name LIKE '%#{params[:search]}%' OR description LIKE '%#{params[:search]}%'").page(params[:page]).per(2)
         if params[:category_id] == "all"
@@ -22,9 +19,16 @@ class MainController < ApplicationController
       end
   end
 
-    def display
-      @category = Category.all
-      @product = Product.find(params[:number].to_i)
+  def display
+    @category = Category.all
+    @product = Product.find(params[:number].to_i)
+  end
+
+  def newproduct
+    @newproduct = Product.where(
+        'created_at >= :five_days_ago',
+        :five_days_ago  => Time.now - 1.days
+    )
   end
 
 end

@@ -38,6 +38,7 @@ html
           
   div
     H1 = "NEW PRODUCTS"
+    H1 = link_to 'New Products', newproduct_path
     - @newproduct.each do |newproducts|
       div
           p = newproducts.name

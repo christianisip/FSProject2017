@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'main/display'
   # get 'clean' => 'main#index', as: 'clean'
   get 'index' => 'main#index', as: 'index'
+  get 'newproduct' => 'main#newproduct', as: 'newproduct'
   get 'main/:number' => 'main#display', constraints: { number: /\d+/ }, as: 'displayproducts'
 
 

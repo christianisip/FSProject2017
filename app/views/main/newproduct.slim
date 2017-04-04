@@ -1,0 +1,9 @@
+div
+  H1 = "NEW PRODUCTS"
+  - @newproduct.each do |newproducts|
+    div
+        p = newproducts.name
+        p = newproducts.description
+        p = newproducts.price
+        p = image_tag newproducts.image.url
+        p = link_to 'Show details', displayproducts_path(number: newproducts.id)
