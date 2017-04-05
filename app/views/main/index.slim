@@ -6,48 +6,17 @@ html
     javascript:
       alert('Slim supports embedded javascript!')
 
-  nav id="mainNav" class="navbar navbar-default"
-    div
-      ul id="ul-inline"
-        li = "Add to cart"
-        li = "Login"
-          
-              
-
-      
-    p = form_tag(index_path, :method => "get", id: "search-form", class: 'form-inline') do
-      p = select_tag(:category_id, content_tag(:option, 'All Products', :value=>"all") + options_from_collection_for_select(Category.all, :id, :name), class: "form-control", style: "height:35px")
-      p = search_field_tag :search, params[:search], placeholder: "Search anything",  size: 195, style: "height:35px"
-      p = button_tag 'Search', productName: nil, class: "btn btn-default btn-success btn-md"
-
-
-  / p
-  /       - @today.each do |todays|
-  /         p
-  /             td = todays.id
-  /             td = todays.name
-  /             td = todays.description
-  /             td = todays.price
-  /             td = todays.quantity
-  /             td = link_to 'Show details', displayproducts_path(number: todays.id)
-  /
-
-  body
-      div class="collapse navbar-collapse" id="navbar-collapse-2"
-        li = "Test"
-        li = "Test"
-  
-  
+  body  
       div id="main-container" class="container-fluid"
         p = paginate @product
         H1 id="test" Featured Products
         div class="row"
           - @product.each do |products|
-            div id="main-content" class="col-xs-9"
-                p = link_to products.name, displayproducts_path(number: products.id)
-                p = products.price
-                / p = link_to 'Show details', displayproducts_path(number: products.id)
-                p = image_tag products.image.url
+              div class="box"
+                  p = link_to products.name, displayproducts_path(number: products.id)
+                  p = products.price
+                  / p = link_to 'Show details', displayproducts_path(number: products.id)
+                  p = image_tag products.image.url
                   
     
      

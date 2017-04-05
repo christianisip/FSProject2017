@@ -1,17 +1,25 @@
-h1Products#display
+doctype html
+html
+  head
+    title Slim Examples
+    meta name="keywords" content="template language"
+    javascript:
+      alert('Slim supports embedded javascript!')
+
+  body  
+    div id="main-container" class="container-fluid"
+      div class="display-center"
+        div id="content" class="col-xs-1"
+          div class="box"
+            - if @product.image.present?
+              p = image_tag @product.image.url
+              else
 
 
-  - if @product.image.present?
-    p = image_tag @product.image.url
-    else
-
-
-    h2 = @product.name
-    h3 = @product.mfr
-
-    p =  @product.description
-    p = @product.price
-
-
-
-    p =  @product.quantity
+              h2 = @product.name
+              p = @product.mfr
+              p =  @product.description
+                
+              p 
+                = "Price: $"
+                = @product.price

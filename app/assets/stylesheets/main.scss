@@ -4,11 +4,33 @@
 
 
 
-#mainNav
+.bg-div
 {
   background-color: #2c3e50;
+  overflow: hidden;
 }
 
+.logo-left
+{
+  float: left;
+  padding-right: 20px;
+}
+
+.logo-center
+{
+  float: center;
+}
+
+.logo-center
+{
+  float: center;
+}
+
+#mainNav
+{
+  float: right;
+  text-align: right;
+}
 
 
 #ul-inline li
@@ -18,4 +40,46 @@
   display: inline;
   float: right;
   padding-top: 5px;
+}
+
+
+#ul-inline-footer li
+{
+  color: black;
+    display: inline;
+}
+
+
+
+.box {
+  background:#fff;
+  transition:all 0.2s ease;
+  border:2px dashed #dadada;
+  margin-top: 10px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-clip: padding-box;
+  padding:20px 20px 20px 20px;
+  min-height:340px;
+}
+  .box-content {
+  word-wrap: break-word;
+  width: 400px;
+  padding: 16px;
+  border-radius: 0 0 2px 2px;
+  background-clip: padding-box;
+  box-sizing: border-box;
+}
+
+.box:hover
+{
+  border:2px solid #525C7A;
+}
+
+.display-center
+{
+  float: center;
+  width: 500px;
+  margin:0 auto;
 }
