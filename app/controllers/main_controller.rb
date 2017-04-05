@@ -31,4 +31,10 @@ class MainController < ApplicationController
     )
   end
 
+  def login
+    if params[:text]
+      User.create!(username: params[:text], province_id: '1')
+    end
+  end
+
 end

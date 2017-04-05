@@ -2,7 +2,7 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+User.create!(username: 'test')
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])

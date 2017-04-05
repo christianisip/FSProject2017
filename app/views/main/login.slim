@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Slim Examples
+    meta name="keywords" content="template language"
+    javascript:
+      alert('Slim supports embedded javascript!')
+      
+    
+  
+  body
+  p = form_tag(login_path, :method => "get", id: "search-form", class: 'form-inline') do
+    p = text_field_tag :text, params[:text], placeholder: "Username",  size: 130, style: "height:35px"
+    p = button_tag 'Login', productName: nil, class: "btn btn-default btn-success btn-md"
