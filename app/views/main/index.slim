@@ -6,11 +6,19 @@ html
     javascript:
       alert('Slim supports embedded javascript!')
 
+  nav id="mainNav" class="navbar navbar-default"
+    div
+      ul id="ul-inline"
+        li = "Add to cart"
+        li = "Login"
+          
+              
 
-    p = form_tag(index_path, :method => "get", id: "search-form") do
-      p = select_tag(:category_id, content_tag(:option, 'All Products', :value=>"all") + options_from_collection_for_select(Category.all, :id, :name))
-      p = text_field_tag :search, params[:search], placeholder: "Search anything"
-      p = submit_tag 'Search', productName: nil
+      
+    p = form_tag(index_path, :method => "get", id: "search-form", class: 'form-inline') do
+      p = select_tag(:category_id, content_tag(:option, 'All Products', :value=>"all") + options_from_collection_for_select(Category.all, :id, :name), class: "form-control", style: "height:35px")
+      p = search_field_tag :search, params[:search], placeholder: "Search anything",  size: 195, style: "height:35px"
+      p = button_tag 'Search', productName: nil, class: "btn btn-default btn-success btn-md"
 
 
   / p
@@ -24,25 +32,34 @@ html
   /             td = link_to 'Show details', displayproducts_path(number: todays.id)
   /
 
-  p = paginate @product
-
-  div
-    H1 = "ALL PRODUCTS"
-    - @product.each do |products|
-      div
-          p = products.name
-          p = products.description
-          p = products.price
-          p = image_tag products.image.url
-          p = link_to 'Show details', displayproducts_path(number: products.id)
+  body
+      div class="collapse navbar-collapse" id="navbar-collapse-2"
+        li = "Test"
+        li = "Test"
+  
+  
+      div id="main-container" class="container-fluid"
+        p = paginate @product
+        H1 id="test" Featured Products
+        div class="row"
+          - @product.each do |products|
+            div id="main-content" class="col-xs-9"
+                p = link_to products.name, displayproducts_path(number: products.id)
+                p = products.price
+                / p = link_to 'Show details', displayproducts_path(number: products.id)
+                p = image_tag products.image.url
+                  
+    
+     
+                            
           
-  div
-    H1 = "NEW PRODUCTS"
-    H1 = link_to 'New Products', newproduct_path
-    - @newproduct.each do |newproducts|
-      div
-          p = newproducts.name
-          p = newproducts.description
-          p = newproducts.price
-          p = image_tag newproducts.image.url
-          p = link_to 'Show details', displayproducts_path(number: newproducts.id)
+/ div
+/ 
+/   H1 = link_to 'New Products', newproduct_path
+/   - @newproduct.each do |newproducts|
+/     div
+/         p = newproducts.name
+/         p = newproducts.description
+/         p = newproducts.price
+/         p = image_tag newproducts.image.url
+/         p = link_to 'Show details', displayproducts_path(number: newproducts.id)

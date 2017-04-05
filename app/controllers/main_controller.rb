@@ -15,7 +15,7 @@ class MainController < ApplicationController
           @product = Product.where("name LIKE '%#{params[:search]}%' AND category_id LIKE '%#{params[:category_id]}%'").page(params[:page]).per(1)
         end
       else
-        @product = Product.all.page(params[:page]).per(2)
+        @product = Product.all.page(params[:page]).per(5)
       end
   end
 
