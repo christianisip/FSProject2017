@@ -7,9 +7,12 @@ html
       alert('Slim supports embedded javascript!')
 
   body  
+    
       div id="main-container" class="container-fluid"
-        H1 id="test" Featured Products
-        p = flash.notice
+        H1 id="test" Your cart
+        - flash.each do |key, value| 
+          div class="has-green"
+              p = value
         div class="row"
           - @addcart.each do |products|
               div class="box"
