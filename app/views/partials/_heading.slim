@@ -9,7 +9,7 @@ html
   body
     div class="bg-div"    
       div class="logo-left"
-        p = link_to cart_path do 
+        p = link_to index_path do 
           p = image_tag "crisip.png"
       div class="logo-center"
         p = form_tag(index_path, :method => "get", id: "search-form", class: 'form-inline') do
@@ -18,7 +18,7 @@ html
           p = button_tag 'Search', productName: nil, class: "btn btn-default btn-success btn-md"
           nav id="mainNav" class="navbar navbar-default"
             ul id="ul-inline"
-              li = "Add to cart"
-              li = "Login"
+              li = link_to "My cart", cart_path
+              li = link_to "Login", login_path
           
           

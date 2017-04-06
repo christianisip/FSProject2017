@@ -39,6 +39,7 @@ class MainController < ApplicationController
 
   def cart
     @addcart = Product.find(session[:to_cart_list])
+    @qtyproduct = params[:quantity]
   end
 
   def remember_to_cart
@@ -47,10 +48,18 @@ class MainController < ApplicationController
     redirect_back(fallback_location: cart_path)
   end
 
+  def delete_to_cart
+    id = params[:id].to_i
+    session[:to_cart_list].delete(id)
+    redirect_back(fallback_location: cart_path)
+     flash[:notice] = "Delete successfully"
+  end
+
   private
 
   def initialize_session
     session[:to_cart_list] ||= []
+
   end
 
   def products_to_call
