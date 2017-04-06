@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # get 'clean' => 'main#index', as: 'clean'
   get 'index' => 'main#index', as: 'index'
   get 'login' => 'main#login', as: 'login'
+  get 'cart' => 'main#cart', as: 'cart'
   get 'newproduct' => 'main#newproduct', as: 'newproduct'
   get 'main/:number' => 'main#display', constraints: { number: /\d+/ }, as: 'displayproducts'
 
