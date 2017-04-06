@@ -33,7 +33,7 @@ class MainController < ApplicationController
     ).page(params[:page]).per(3)
   end
 
-  def newproduct
+  def recentlyproduct
     @newproduct = Product.where(
         'created_at >= :five_days_ago',
         :five_days_ago  => Time.now - 4.days

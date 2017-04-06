@@ -10,10 +10,6 @@ html
       div id="main-container" class="container-fluid"
         p = paginate @product
         H3 id="test" Featured Products
-        ul id="ul-inline-not"
-          li = link_to "New products", newproduct_path
-          li = link_to "Recently updated", recentlyproduct_path
-          li = link_to "CPU", index_path(category_type: 1)
         div class="row"
           - @product.each do |products|
               div class="box"

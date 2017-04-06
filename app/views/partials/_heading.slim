@@ -18,7 +18,10 @@ html
           p = button_tag 'Search', productName: nil, class: "btn btn-default btn-success btn-md"
           nav id="mainNav" class="navbar navbar-default"
             ul id="ul-inline"
-              li = link_to "My cart #{session[:to_cart_list]}", cart_path
+              - if session[:to_cart_list] == 0
+                  li = link_to "My cart: 0", cart_path
+              - else
+                  li = link_to "My cart #{session[:to_cart_list].size}", cart_path
               li = link_to "Login", login_path
               li = link_to "About", about_path
               div id="test-li"
@@ -26,5 +29,10 @@ html
                 li = link_to "New products", newproduct_path
                 li = link_to "Recently updated", recentlyproduct_path
                 li = link_to "CPU", index_path(category_type: 1)
+                li = link_to "Motherboard", index_path(category_type: 2)
+                li = link_to "Power Supply", index_path(category_type: 4)
+                li = link_to "Case", index_path(category_type: 5)
+                li = link_to "Videocard", index_path(category_type: 6)
+                
           
           

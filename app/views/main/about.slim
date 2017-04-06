@@ -7,9 +7,10 @@ html
       alert('Slim supports embedded javascript!')
       
   body  
-      div id="main-container" class="container-fluid"
-        H1 id="test" This is about page
-        div class="row"
-              - @about.each do |abouts|
-                div class="box"
-                  p = abouts.about
+    div id="main-container" class="container-fluid"
+      div class="display-center"
+        div id="content" class="col-xs-1"
+          div class="row"
+                - @about.each do |abouts|
+                  div class="box"
+                    p = abouts.about
