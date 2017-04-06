@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Slim Examples
+    meta name="keywords" content="template language"
+    javascript:
+      alert('Slim supports embedded javascript!')
+
+  body  
+      div id="main-container" class="container-fluid"
+        p = paginate @recentlyproduct
+        H3 id="test" Recently Updated Products
+        div class="row"
+          - @recentlyproduct.each do |recentlyproducts|
+              div class="box"
+                  p = link_to recentlyproducts.name, displayproducts_path(number: recentlyproducts.id)
+                  p = recentlyproducts.price
+                  / p = link_to 'Show details', displayproducts_path(number: products.id)
+                  p = image_tag recentlyproducts.image.url
+                  p = link_to "Add to cart", remember_to_cart_main_path(recentlyproducts.id), method: :post

@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   get 'login' => 'main#login', as: 'login'
   get 'cart' => 'main#cart', as: 'cart'
   get 'newproduct' => 'main#newproduct', as: 'newproduct'
+  get 'recentlyproduct' => 'main#recentlyproduct', as: 'recentlyproduct'
+  get 'categoryproduct' => 'main#categoryproduct', as: 'categoryproduct'
   get 'main/:number' => 'main#display', constraints: { number: /\d+/ }, as: 'displayproducts'
+  get 'about' => 'main#about', as: 'about'
+  get 'contact' => 'main#contact', as: 'contact'
 
   resources :main do
     member do

@@ -2,20 +2,18 @@ class MainController < ApplicationController
     before_action :initialize_session
     def index
       @testProduct = Product.all
-      @newproduct = Product.where(
-          'created_at >= :five_days_ago',
-          :five_days_ago  => Time.now - 1.days
-      )
       if params[:search]
         # @product = Product.where("name LIKE '%#{params[:search]}%' OR description LIKE '%#{params[:search]}%'").page(params[:page]).per(2)
         if params[:category_id] == "all"
         # @product = Product.where("category_id = #{ params[:category_id] }").page(params[:page]).per(2)
-          @product = Product.where("name LIKE '%#{params[:search]}%' OR description LIKE '%#{params[:search]}%'").page(params[:page]).per(2)
+          @product = Product.where("name LIKE '%#{params[:search]}%' OR description LIKE '%#{params[:search]}%'").order(:name).page(params[:page]).per(2)
         else
           @product = Product.where("name LIKE '%#{params[:search]}%' AND category_id LIKE '%#{params[:category_id]}%'").page(params[:page]).per(1)
         end
+      elsif params[:category_type]
+        @product = Product.where("category_id = #{params[:category_type]}").order(:name).page(params[:page]).per(3)
       else
-        @product = Product.all.page(params[:page]).per(5)
+        @product = Product.all.page(params[:page]).per(3)
       end
   end
 
@@ -27,13 +25,36 @@ class MainController < ApplicationController
   def newproduct
     @newproduct = Product.where(
         'created_at >= :five_days_ago',
-        :five_days_ago  => Time.now - 1.days
-    )
+        :five_days_ago  => Time.now - 4.days
+    ).page(params[:page]).per(3)
+    @recentlyproduct = Product.where(
+        'updated_at >= :five_days_ago',
+        :five_days_ago  => Time.now - 5.days
+    ).page(params[:page]).per(3)
+  end
+
+  def newproduct
+    @newproduct = Product.where(
+        'created_at >= :five_days_ago',
+        :five_days_ago  => Time.now - 4.days
+    ).page(params[:page]).per(3)
+    @recentlyproduct = Product.where(
+        'updated_at >= :five_days_ago',
+        :five_days_ago  => Time.now - 5.days
+    ).page(params[:page]).per(3)
   end
 
   def login
-    if params[:text]
-      User.create!(username: params[:text], province_id: '1')
+    if params[:username]
+      User.create!(username: params[:username],
+                  firstname: params[:firstname],
+                  lastname: params[:lastname],
+                  password: params[:password],
+                  address: params[:address],
+                  province_id: params[:province_id],
+                  email: params[:email],
+                  phonenumber: params[:phonenumber]
+                  )
     end
   end
 
@@ -55,8 +76,16 @@ class MainController < ApplicationController
      flash[:notice] = "Delete successfully"
   end
 
-  private
+  def contact
+    @contact = Information.all
+  end
 
+  def about
+    @about = Information.all
+  end
+
+
+  private
   def initialize_session
     session[:to_cart_list] ||= []
 

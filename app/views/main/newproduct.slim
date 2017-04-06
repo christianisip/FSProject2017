@@ -1,9 +1,20 @@
-div
-  H1 = "NEW PRODUCTS"
-  - @newproduct.each do |newproducts|
-    div
-        p = newproducts.name
-        p = newproducts.description
-        p = newproducts.price
-        p = image_tag newproducts.image.url
-        p = link_to 'Show details', displayproducts_path(number: newproducts.id)
+doctype html
+html
+  head
+    title Slim Examples
+    meta name="keywords" content="template language"
+    javascript:
+      alert('Slim supports embedded javascript!')
+
+  body  
+      div id="main-container" class="container-fluid"
+        p = paginate @newproduct
+        H3 id="test" New Products
+        div class="row"
+          - @newproduct.each do |newproducts|
+              div class="box"
+                  p = link_to newproducts.name, displayproducts_path(number: newproducts.id)
+                  p = newproducts.price
+                  / p = link_to 'Show details', displayproducts_path(number: products.id)
+                  p = image_tag newproducts.image.url
+                  p = link_to "Add to cart", remember_to_cart_main_path(newproducts.id), method: :post
