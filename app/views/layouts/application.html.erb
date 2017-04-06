@@ -12,6 +12,10 @@
     <%= render partial: 'partials/heading' %>
     <%= yield %>
       <%= render partial: 'partials/footer' %>
+
+      <div>
+        <%=  session[:to_cart_list] %>
+      </div>
   </body>
 
 </html>

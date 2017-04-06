@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :products
-
+  # resources :products
+  root to: 'main#index'
 
   get 'main/display'
   # get 'clean' => 'main#index', as: 'clean'
@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   get 'newproduct' => 'main#newproduct', as: 'newproduct'
   get 'main/:number' => 'main#display', constraints: { number: /\d+/ }, as: 'displayproducts'
 
+  resources :main do
+    member do
+      post :remember_to_cart # POST /customers/:id/remember_to_call/
+    end
+  end
 
-  root 'main#index'
   # resources :products
 end

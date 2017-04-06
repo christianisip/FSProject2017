@@ -1,7 +1,7 @@
 class MainController < ApplicationController
-
+    before_action :initialize_session
     def index
-      @category = Category.all
+      @testProduct = Product.all
       @newproduct = Product.where(
           'created_at >= :five_days_ago',
           :five_days_ago  => Time.now - 1.days
@@ -36,5 +36,26 @@ class MainController < ApplicationController
       User.create!(username: params[:text], province_id: '1')
     end
   end
+
+  def cart
+    @addcart = Product.find(session[:to_cart_list])
+  end
+
+  def remember_to_cart
+    id = params[:id].to_i
+    session[:to_cart_list] << id unless session[:to_cart_list].include?(id)
+    redirect_back(fallback_location: cart_path)
+  end
+
+  private
+
+  def initialize_session
+    session[:to_cart_list] ||= []
+  end
+
+  def products_to_call
+    Product.find(session[:to_cart_list])
+  end
+  helper_method :products_to_call
 
 end
