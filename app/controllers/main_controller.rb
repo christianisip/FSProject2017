@@ -45,6 +45,7 @@ class MainController < ApplicationController
   end
 
   def login
+    @all = User.all
     if params[:username]
       User.create!(username: params[:username],
                   firstname: params[:firstname],
@@ -55,6 +56,17 @@ class MainController < ApplicationController
                   email: params[:email],
                   phonenumber: params[:phonenumber]
                   )
+    end
+
+    if params[:usernamelogin]
+      @user = User.find_by("username IS '#{params[:usernamelogin]}'")
+      if (@user && params[:usernamelogin] == @user.username && params[:passwordlogin] == @user.password)
+        session[:user] = @user.username
+        session[:province] = @user.province
+        redirect_to index_path
+      else
+        redirect_to cart_path
+      end
     end
   end
 

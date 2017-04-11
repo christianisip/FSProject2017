@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Slim Examples
+    meta name="keywords" content="template language"
+    javascript:
+      alert('Slim supports embedded javascript!')
+
+  div
+    p = "test #{session[:user]}"
+    p = "test #{session[:province]}"
