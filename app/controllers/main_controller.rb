@@ -62,7 +62,10 @@ class MainController < ApplicationController
       @user = User.find_by("username IS '#{params[:usernamelogin]}'")
       if (@user && params[:usernamelogin] == @user.username && params[:passwordlogin] == @user.password)
         session[:user] = @user.username
-        session[:province] = @user.province
+        session[:province] = @user.province.name
+        session[:pst] = @user.province.pst
+        session[:gst] = @user.province.gst
+
         redirect_to index_path
       else
         redirect_to cart_path
@@ -73,6 +76,7 @@ class MainController < ApplicationController
   def cart
     @addcart = Product.find(session[:to_cart_list])
     @qtyproduct = params[:quantity]
+    session[:totalprice] = 0;
   end
 
   def remember_to_cart
@@ -85,7 +89,7 @@ class MainController < ApplicationController
     id = params[:id].to_i
     session[:to_cart_list].delete(id)
     redirect_back(fallback_location: cart_path)
-     flash[:notice] = "Delete successfully"
+    flash[:notice] = "Delete successfully"
   end
 
   def contact
@@ -100,12 +104,11 @@ class MainController < ApplicationController
   private
   def initialize_session
     session[:to_cart_list] ||= []
-
   end
-
-  def products_to_call
-    Product.find(session[:to_cart_list])
-  end
-  helper_method :products_to_call
+  #
+  # def products_to_call
+  #   Product.find(session[:to_cart_list])
+  # end
+  # helper_method :products_to_call
 
 end

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :main do
     member do
       post :remember_to_cart # POST /customers/:id/remember_to_call/
-      post :delete_to_cart # POST /customers/:id/remember_to_call/
+      post :delete_to_cart # POST /customers/:id/delete_to_cart/
     end
   end
 
