@@ -23,3 +23,12 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+production:
+  adapter: postgresql
+  host: 104.236.109.1
+  database: my_app_name_production
+  username: chrisip
+  password: snsdgg09
+  encoding: unicode
+  pool: 5

@@ -7,7 +7,7 @@ lock "3.8.0"
 set :application, "FSProject2017"
 set :repo_url, "https://github.com/christianisip/FSProject2017.git"
 
-set :deploy_to, '/home/deploy/FSProject2017'
+set :deploy_to, '/home/chrisip/FSProject2017'
 
 append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
