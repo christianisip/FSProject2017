@@ -27,6 +27,6 @@ html
                   p = form_tag(cart_path, :method => "get", id: "search-form", class: 'form-inline') do
                     p = text_field_tag :quantity, params[:quantity], placeholder: "Quantity",  size: 50, style: "height:35px"
                     p = button_tag 'Qty', productName: nil, class: "btn btn-default btn-success btn-md" 
-                  p = link_to "Remove", delete_to_cart_main_path(products.id), method: :post
+                  p = link_to "Remove", delete_to_cart_main_path(products.id), method: :post, remote: true
                   -session[:totalprice] = session[:totalprice].to_i + (products.price * params[:quantity].to_i)
         p = "total #{session[:totalprice]}" 
