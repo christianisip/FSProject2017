@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$_right: right;
+$_left: left;
+$_center: center;
 
 .has-green
 {
@@ -14,43 +17,56 @@
   overflow: hidden;
 }
 
-.logo-left
-{
-  float: left;
-  padding-right: 20px;
-}
-
-.logo-center
-{
-  float: center;
-}
-
-.logo-center
-{
-  float: center;
-}
-
 #mainNav
 {
-  float: right;
-  text-align: right;
+  float: $_right;
+  text-align: $_right;
+
+  ul
+  {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li
+  {
+    color: white;
+    margin-left: 5px;
+    display: inline;
+    float: $_right;
+    padding-top: 5px;
+  }
 }
 
 
-#ul-inline li
+.logo-left
 {
-  color: white;
-  margin-left: 5px;
-  display: inline;
-  float: right;
-  padding-top: 5px;
+  float: $_left;
+  padding-right: 3px * 5 + 5px;
 }
+
+.logo-center
+{
+  float: $_center;
+}
+
+
+
+// #ul-inline li
+// {
+//   color: white;
+//   margin-left: 5px;
+//   display: inline;
+//   float: $_right;
+//   padding-top: 5px;
+// }
 
 #ul-inline-not
 {
   color: white;
   margin-right: 20px;
-  float: right;
+  float: $_right;
   padding-top: 5px;
 }
 
@@ -58,13 +74,13 @@
 #ul-inline-footer li
 {
   color: black;
-    display: inline;
+  display: inline;
 }
 
 #test-li
 {
-  float: right;
-  text-align: right;
+  float: $_right;
+  text-align: $_right;
 }
 
 
@@ -81,9 +97,10 @@
   padding:20px 20px 20px 20px;
   min-height:340px;
 }
-  .box-content {
+.box-content
+  {
   word-wrap: break-word;
-  width: 400px;
+  width: 200px * 2;
   padding: 16px;
   border-radius: 0 0 2px 2px;
   background-clip: padding-box;

@@ -1,26 +1,28 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
-gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
-# gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'carrierwave', '~> 1.0'
+gem 'devise'
+gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
+gem 'kaminari'
+# gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
 # gem 'protected_attributes'
 gem 'mini_magick', '~> 4.3'
 # gem 'rubocop', '~> 0.47.1', require: false
-gem 'devise'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+
 gem 'slim'
-gem 'kaminari'
-gem 'capistrano', '~> 3.7', '>= 3.7.1'
-gem 'capistrano-rails', '~> 1.2'
-gem 'capistrano-passenger', '~> 0.2.0'
-gem 'capistrano-rbenv', '~> 2.1'
-gem 'capistrano-bundler', '~> 1.2'
+
+# gem 'capistrano', '~> 3.7', '>= 3.7.1'
+# gem 'capistrano-rails', '~> 1.2'
+# gem 'capistrano-passenger', '~> 0.2.0'
+# gem 'capistrano-rbenv', '~> 2.1'
+# gem 'capistrano-bundler', '~> 1.2'
 # gem 'sass-rails'
 
 

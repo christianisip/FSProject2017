@@ -9,7 +9,7 @@ html
   div
     p = "Christian Isip #{session[:user]}"
     p = "Province #{session[:province]}"
-    p = "test #{session[:pst]}"
-    p = "test #{session[:gst]}"
-    -session[:totaltaxprice] = (session[:totalprice].to_i * ((session[:gst].to_d  + session[:pst].to_d ) / 100)) + session[:totalprice].to_d
+    p = "PST #{session[:pst]}"
+    p = "GST #{session[:gst]}"
+    -session[:totaltaxprice] = (session[:totalprice].to_i * ((session[:gst].to_f  + session[:pst].to_f ) / 100)) + session[:totalprice].to_f
     p = "Total Price #{session[:totaltaxprice]}"
