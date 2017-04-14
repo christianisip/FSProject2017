@@ -13,20 +13,22 @@ html
       div class="logo-center"
         p = form_tag(index_path, :method => "get", id: "search-form", class: 'form-inline') do
           p = select_tag(:category_id, content_tag(:option, 'All Products', :value=>"all") + options_from_collection_for_select(Category.all, :id, :name), class: "form-control", style: "height:35px")
-          p = search_field_tag :search, params[:search], placeholder: "Search anything",  size: 130, style: "height:35px"
+          p = search_field_tag :search, params[:search], placeholder: "Search anything",  size: 120, style: "height:35px"
           p = button_tag 'Search', productName: nil, class: "btn btn-default btn-success btn-md"
-          nav id="mainNav" class="navbar navbar-default"
+          div class="logo-right"
             ul id="ul-inline"
-              - if session[:to_cart_list] == 0
-                  li = link_to "My cart: 0", cart_path
-              - else
-                  li = link_to "My cart #{session[:to_cart_list].size}", cart_path
               li = link_to "Login", login_path
               li = link_to "About", about_path
+              li = link_to "Contact", contact_path
+              - if session[:to_cart_list] == 0
+                li = link_to "My cart: 0", cart_path
+              - else
+                li = link_to "My cart #{session[:to_cart_list].size}", cart_path
+          nav id="mainNav" class="navbar navbar-default"
+            ul id="ul-inline"
               div id="test-li"
-                li = link_to "Contact", contact_path
-                li = link_to "New products", newproduct_path
-                li = link_to "Recently updated", recentlyproduct_path
+                / li = link_to "New products", newproduct_path
+                / li = link_to "Recently updated", recentlyproduct_path
                 li = link_to "CPU", index_path(category_type: 1)
                 li = link_to "Motherboard", index_path(category_type: 2)
                 li = link_to "Power Supply", index_path(category_type: 4)

@@ -39,11 +39,43 @@ $_center: center;
   }
 }
 
+.logo-right
+{
+  float: $_right;
+}
+
+#ul-inline
+{
+  ul
+  {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li
+  {
+    color: white;
+    margin-left: 5px;
+    display: inline;
+    float: $_right;
+    padding-top: 5px;
+  }
+}
+
+
+.logo-right ul li
+{
+  padding-left: 10px;
+  float: right;
+  text-align: right;
+}
 
 .logo-left
 {
   float: $_left;
-  padding-right: 3px * 5 + 5px;
+  padding-right: 3px * 5 + 10px;
+  padding-left: 20px;
 }
 
 .logo-center
