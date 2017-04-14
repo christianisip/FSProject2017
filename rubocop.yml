@@ -7,11 +7,17 @@ AllCops:
     - test/**/*
     - app/admin/**/*
 
+
 Encoding:
   Enabled: false
 
 Documentation:
   Enabled: false
+
+EndOfLine:
+  Enabled: false
+
+
 
 Metrics/LineLength:
   Max: 99

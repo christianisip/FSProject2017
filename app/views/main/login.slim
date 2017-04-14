@@ -23,7 +23,7 @@ html
         
     div
       p = form_tag(login_path, :method => "get", id: "search-form", class: 'form-inline') do
-        p = text_field_tag :usernamelogin, params[:usernamelogin], placeholder: "Username",  size: 50, style: "height:35px"
-        p = text_field_tag :passwordlogin, params[:passwordlogin], placeholder: "Password",  size: 50, style: "height:35px"
+        p = text_field_tag :userlogin, params[:userlogin], placeholder: "Username",  size: 50, style: "height:35px"
+        p = text_field_tag :passlogin, params[:passlogin], placeholder: "Password",  size: 50, style: "height:35px"
         p = button_tag 'Login', productName: nil, class: "btn btn-default btn-success btn-md"      
         
