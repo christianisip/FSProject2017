@@ -2,19 +2,15 @@ class MainController < ApplicationController
   before_action :initialize_session
 
   def index
+    @product = Product.all.page(params[:page]).per(3)
     if params[:search]
       if params[:category_id] == 'all'
-        @product = Product.where("name LIKE '%#{params[:search]}%' OR description LIKE
-                                  '%#{params[:search]}%'").order(:name).page(params[:page]).per(2)
+        @product = Product.a_s(params[:search]).order(:name).page(params[:page]).per(2)
       else
-        @product = Product.where("name LIKE '%#{params[:search]}%' AND category_id
-                                  LIKE '%#{params[:category_id]}%'").page(params[:page]).per(1)
+        @product = Product.all_c(params[:search], params[:category_id]).page(params[:page]).per(1)
       end
     elsif params[:category_type]
-      @product = Product.where("category_id =
-      #{params[:category_type]}").order(:name).page(params[:page]).per(3)
-    else
-      @product = Product.all.page(params[:page]).per(3)
+      @product = Product.a_cl(params[:category_type]).order(:name).page(params[:page]).per(3)
     end
   end
 
@@ -35,26 +31,27 @@ class MainController < ApplicationController
     ).page(params[:page]).per(3)
   end
 
-  def login
-    if params[:username]
-      User.create!(
-        username: params[:username], firstname: params[:firstname],
-        lastname: params[:lastname], password: params[:password], address: params[:address],
-        province_id: params[:province_id], email: params[:email], phonenumber: params[:phonenumber]
-      )
-    end
-
-    return unless params[:userlogin]
-    @user = User.find_by("username IS '#{params[:userlogin]}'")
-    if @user && params[:userlogin] == @user.username && params[:passlogin] == @user.password
-      session[:user] = @user.username
-      session[:province] = @user.province.name
-      session[:pst] = @user.province.pst
-      session[:gst] = @user.province.gst
-    else
-      redirect_to index_path
-    end
+  def register
+    return unless params[:username]
+    User.create!(
+      username: params[:username], firstname: params[:firstname],
+      lastname: params[:lastname], password: params[:password], address: params[:address],
+      province_id: params[:province_id], email: params[:email], phonenumber: params[:phonenumber]
+    )
   end
+
+  # def login
+  #   return unless params[:userlogin]
+  #   @user = User.find_by("username IS '#{params[:userlogin]}'")
+  #   if @user && params[:userlogin] == @user.username && params[:passlogin] == @user.password
+  #     session[:user] = @user.username
+  #     # session[:province] = @user.province.name
+  #     # session[:pst] = @user.province.pst
+  #     # session[:gst] = @user.province.gst
+  #   else0
+  #     redirect_to index_path
+  #   end
+  # end
 
   def cart
     @addcart = Product.find(session[:to_cart_list])
@@ -94,8 +91,5 @@ class MainController < ApplicationController
     session[:province] = @user.province.name
     session[:pst] = @user.province.pst
     session[:gst] = @user.province.gst
-  end
-
-  def test
   end
 end

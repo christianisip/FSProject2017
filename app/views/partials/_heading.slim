@@ -13,7 +13,7 @@ html
         div class="logo-center"
           p = form_tag(index_path, :method => "get", id: "search-form", class: 'form-inline') do
             p = select_tag(:category_id, content_tag(:option, 'All Products', :value=>"all") + options_from_collection_for_select(Category.all, :id, :name), class: "form-control", style: "height:35px")
-            p = search_field_tag :search, params[:search], placeholder: "Search anything",  size: 120, style: "height:35px"
+            p = search_field_tag :search, params[:search], placeholder: "Search anything",  size: 70, style: "height:35px"
             p = button_tag 'Search', productName: nil, class: "btn btn-default btn-success btn-md"
             nav id="mainNav-right" class="navbar navbar-default"
               ul id="ul-inline"

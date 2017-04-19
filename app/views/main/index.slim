@@ -15,8 +15,9 @@ html
                   p = products.price
                   / p = link_to 'Show details', displayproducts_path(number: products.id)
                   p = image_tag products.image.url
-                  p = link_to "Add to cart", remember_to_cart_main_path(products.id), method: :post
-                  
+                  div
+                    p = link_to "Add to cart", remember_to_cart_main_path(products.id), method: :post
+      footer = "All Rights Reserved"            
                   
 
                                 

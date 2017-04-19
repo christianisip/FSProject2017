@@ -6,20 +6,20 @@ html
     javascript:
       alert('Slim supports embedded javascript!')
     
-  p = "test #{session[:user]}"
-  body
-    div
-      p = form_tag(login_path, :method => "get", id: "search-form", class: 'form-inline') do
-        p = text_field_tag :username, params[:username], placeholder: "Username",  size: 50, style: "height:35px"
-        p = text_field_tag :password, params[:password], placeholder: "Password",  size: 50, style: "height:35px"
-        p = text_field_tag :firstname, params[:firstname], placeholder: "Firstname",  size: 50, style: "height:35px"
-        p = text_field_tag :lastname, params[:lastname], placeholder: "Lastname",  size: 50, style: "height:35px"
-        p = text_field_tag :address, params[:address], placeholder: "Address",  size: 50, style: "height:35px"
-        p = label_tag(:province, "Province") 
-          p = select_tag(:province_id, content_tag(:option, '', :value=>"") + options_from_collection_for_select(Province.all, :id, :name))
-        p = text_field_tag :email, params[:email], placeholder: "Email",  size: 50, style: "height:35px"
-        p = text_field_tag :phonenumber, params[:phonenumber], placeholder: "Phone number",  size: 50, style: "height:35px"
-        p = button_tag 'Register', productName: nil, class: "btn btn-default btn-success btn-md"
+  / p = "test #{session[:user]}"
+  / body
+  /   div
+  /     p = form_tag(login_path, :method => "get", id: "search-form", class: 'form-inline') do
+  /       p = text_field_tag :username, params[:username], placeholder: "Username",  size: 50, style: "height:35px"
+  /       p = text_field_tag :password, params[:password], placeholder: "Password",  size: 50, style: "height:35px"
+  /       p = text_field_tag :firstname, params[:firstname], placeholder: "Firstname",  size: 50, style: "height:35px"
+  /       p = text_field_tag :lastname, params[:lastname], placeholder: "Lastname",  size: 50, style: "height:35px"
+  /       p = text_field_tag :address, params[:address], placeholder: "Address",  size: 50, style: "height:35px"
+  /       p = label_tag(:province, "Province") 
+  /         p = select_tag(:province_id, content_tag(:option, '', :value=>"") + options_from_collection_for_select(Province.all, :id, :name))
+  /       p = text_field_tag :email, params[:email], placeholder: "Email",  size: 50, style: "height:35px"
+  /       p = text_field_tag :phonenumber, params[:phonenumber], placeholder: "Phone number",  size: 50, style: "height:35px"
+  /       p = button_tag 'Register', productName: nil, class: "btn btn-default btn-success btn-md"
         
     div
       p = form_tag(login_path, :method => "get", id: "search-form", class: 'form-inline') do
